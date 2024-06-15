@@ -1,2 +1,2 @@
-scoreboard objectives add equiptotem dummy
-scoreboard objectives add usedtotem minecraft.used:minecraft.totem_of_undying
+scoreboard objectives add equip_totem dummy
+scoreboard objectives add used_totem minecraft.used:minecraft.totem_of_undying

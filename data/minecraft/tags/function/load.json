@@ -1,5 +1,3 @@
-
 {
-	"values": ["totem:reload"]
+  "values": ["peter:reload", "totem:reload", "lightning_bow:reload"]
 }
-

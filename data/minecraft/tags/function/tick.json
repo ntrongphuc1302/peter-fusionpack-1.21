@@ -1,5 +1,3 @@
-
 {
-	"values": ["totem:main"]
+  "values": ["totem:main", "lightning_bow:main"]
 }
-
