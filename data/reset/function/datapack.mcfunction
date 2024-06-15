@@ -1,2 +1,4 @@
+scoreboard objectives remove equip_totem
+scoreboard objectives remove used_totem
 scoreboard objectives remove equip_lightning_bow
 scoreboard objectives remove used_lightning_bow

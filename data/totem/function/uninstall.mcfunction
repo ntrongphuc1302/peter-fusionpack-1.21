@@ -1,2 +1,0 @@
-scoreboard objectives remove equip_totem
-scoreboard objectives remove used_totem
