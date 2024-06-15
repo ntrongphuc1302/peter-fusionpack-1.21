@@ -3,7 +3,7 @@ execute as @e[type=armor_stand,tag=LightningBow] at @s run kill @s
 execute as @e[type=item,nbt={Item:{id:"minecraft:bow"}}] at @s if entity @e[type=item,nbt={Item:{id:"minecraft:lightning_rod"}},distance=..0.25] run summon minecraft:armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoGravity:1b,Tags:["LightningBow"]}
 execute as @e[type=armor_stand,tag=LightningBow] at @s run kill @e[type=item,nbt={Item:{id:"minecraft:bow"}},distance=..0.25]
 execute as @e[type=armor_stand,tag=LightningBow] at @s run kill @e[type=item,nbt={Item:{id:"minecraft:lightning_rod"}},distance=..0.25]
-execute as @e[type=armor_stand,tag=LightningBow] at @s run summon item ~ ~ ~ {Tags:["lightning_bow"],Item:{id:"minecraft:bow",count:1,components:{"minecraft:custom_name":'{"bold":true,"color":"dark_red","text":"LightningStrike"}',"minecraft:lore":['{"color":"dark_purple","text":"Peter\'s Bow"}'],"minecraft:unbreakable":{},"minecraft:custom_model_data":1,"minecraft:enchantments":{levels:{"minecraft:infinity":1}}}}}
+execute as @e[type=armor_stand,tag=LightningBow] at @s run summon item ~ ~ ~ {Tags:["lightning_bow"],Item:{id:"minecraft:bow",count:1,components:{"minecraft:custom_name":'{"bold":true,"color":"dark_red","text":"LightningStrike"}',"minecraft:lore":['{"color":"dark_purple","text":"Peter\'s Bow"}'],"minecraft:unbreakable":{show_in_tooltip:false},"minecraft:custom_model_data":1,"minecraft:enchantments":{levels:{"minecraft:infinity":1},show_in_tooltip:false}}}}
 
 
 #power
