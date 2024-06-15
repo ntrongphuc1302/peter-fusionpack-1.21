@@ -1,8 +1,3 @@
 {
-  "values": [
-    "peter:reload",
-    "totem:reload",
-    "lightning_bow:reload",
-    "infinity_elytra:reload"
-  ]
+  "values": ["peter:reload"]
 }

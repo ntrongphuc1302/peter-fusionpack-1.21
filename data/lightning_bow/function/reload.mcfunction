@@ -1,2 +1,0 @@
-scoreboard objectives add equip_lightning_bow dummy
-scoreboard objectives add used_lightning_bow minecraft.used:minecraft.bow
