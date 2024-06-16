@@ -55,7 +55,12 @@ execute as @e[type=armor_stand,tag=InfinityElytra] at @s run summon item ~ ~ ~ {
 #Power
 scoreboard players set @a equip_elytra 0
 scoreboard players set @a[nbt={Inventory:[{Slot:102b,id:"minecraft:elytra",components:{"minecraft:enchantments":{levels:{"minecraft:infinity":1}}}}]}] equip_elytra 1
-execute as @a[scores={equip_elytra=1},nbt={Inventory:[{Slot:102b,id:"minecraft:elytra",components:{"minecraft:custom_model_data":1}}]}] run execute as @a[nbt=!{Inventory:[{id:"minecraft:firework_rocket"}]}] run give @s[nbt={Inventory:[{Slot:102b,id:"minecraft:elytra",components:{"minecraft:custom_model_data":1}}]}] firework_rocket[fireworks={flight_duration:3}]
+execute as @a[scores={equip_elytra=1},nbt={Inventory:[{Slot:102b,id:"minecraft:elytra",components:{"minecraft:custom_model_data":1}}]}] run execute as @a[nbt=!{Inventory:[{id:"minecraft:firework_rocket"}]}] run give @s[nbt={Inventory:[{Slot:102b,id:"minecraft:elytra",components:{"minecraft:custom_model_data":1}}]}] firework_rocket[custom_name='{"bold":true,"color":"dark_red","text":"Infinite Ignition"}',lore=['{"color":"dark_purple","text":"Peter\'s Rocket"}'],hide_additional_tooltip={},custom_model_data=1,enchantments={levels:{"minecraft:infinity":1},show_in_tooltip:false},fireworks={flight_duration:3}]
+
+execute as @a[scores={equip_elytra=1,equip_firework_rocket=1},nbt={SelectedItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:custom_model_data":1}}},nbt={FallFlying:1b}] at @s run tp @s ^ ^0.25 ^0.25
+
+scoreboard players set @a equip_firework_rocket 0
+scoreboard players set @a[nbt={SelectedItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:custom_model_data":1}}}] equip_firework_rocket 1
 
 
 # Dimensional Arrowcaster
@@ -73,7 +78,7 @@ execute at @e[tag=teleport_arrow,nbt={inGround:1b}] run effect give @a[nbt={Sele
 execute at @e[tag=teleport_arrow,nbt={inGround:1b}] run tp @e[tag=teleporter,limit=1]
 execute at @e[type=arrow,tag=teleport_arrow,nbt={inGround:1b}] run playsound minecraft:entity.enderman.teleport master @e[type=player,distance=..15] ~ ~ ~ 100
 execute as @e[type=player,tag=teleporter,limit=1] at @s run particle minecraft:portal ~ ~0.75 ~ 0.5 0.5 0.5 2 50 force @e[type=player,tag=teleporter,limit=1]
-execute as @e[type=arrow,tag=teleport_arrow,nbt={inGround:1b}] at @s run particle minecraft:portal ~ ~0.75 ~ 0.5 0.5 0.5 2 200 force @e[type=player,tag=teleporter,limit=1]
+execute as @e[type=arrow,tag=teleport_arrow,nbt={inGround:1b}] at @s run particle minecraft:portal ~ ~0.75 ~ 0.5 0.5 0.5 2 300 force @e[type=player,tag=teleporter,limit=1]
 execute if entity @e[type=arrow,tag=teleport_arrow,nbt={inGround:1b}] run execute as @e[type=player,tag=teleporter,limit=1] at @s run playsound minecraft:entity.enderman.teleport master @e[type=player,distance=..15] ~ ~ ~ 100
 execute as @e[type=player,tag=teleporter,limit=1] at @s if entity @e[type=arrow,tag=teleport_arrow,nbt={inGround:1b}] run teleport @e[type=player,tag=teleporter,limit=1] @e[type=arrow,tag=teleport_arrow,limit=1]
 execute at @e[tag=teleport_arrow,nbt={inGround:1b}] run tag @a remove teleporter
@@ -82,6 +87,22 @@ scoreboard players set @a equip_teleport_bow 0
 scoreboard players set @a[nbt={SelectedItem:{id:"minecraft:bow",count:1,components:{"minecraft:custom_model_data":2}}}] equip_teleport_bow 1
 scoreboard players set @a used_teleport_bow 0
 
-
 #Arrow
 execute at @a[nbt={SelectedItem:{id:"minecraft:bow",count:1,components:{"minecraft:custom_model_data":2}}}] run execute as @a[nbt=!{Inventory:[{id:"minecraft:arrow"}]}] run give @s minecraft:arrow 1
+
+
+# Spatial Scepter
+#Crafting
+execute as @e[type=armor_stand,tag=TeleportStick] at @s run kill @s
+execute as @e[type=item,nbt={Item:{id:"minecraft:stick"}}] at @s if entity @e[type=item,nbt={Item:{id:"minecraft:ender_pearl"}},distance=..0.25] run summon minecraft:armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoGravity:1b,Tags:["TeleportStick"]}
+execute as @e[type=armor_stand,tag=TeleportStick] at @s run kill @e[type=item,nbt={Item:{id:"minecraft:stick"}},distance=..0.25]
+execute as @e[type=armor_stand,tag=TeleportStick] at @s run kill @e[type=item,nbt={Item:{id:"minecraft:ender_pearl"}},distance=..0.25]
+execute as @e[type=armor_stand,tag=TeleportStick] at @s run summon item ~ ~0.1 ~ {Tags:["teleport_stick"],Item:{id:"minecraft:stick",count:1,components:{"minecraft:food":{nutrition:0,saturation:0,can_always_eat:true,eat_seconds:1000000},"minecraft:custom_name":'{"bold":true,"color":"dark_red","text":"Spatial Scepter"}',"minecraft:lore":['{"color":"dark_purple","text":"Peter\'s Scepter"}'],"minecraft:unbreakable":{show_in_tooltip:false},"minecraft:custom_model_data":1,"minecraft:enchantments":{levels:{"minecraft:infinity":1},show_in_tooltip:false}}}}
+
+# Power
+advancement revoke @a only peter:teleport_stick
+playsound minecraft:entity.enderman.teleport master @s ~ ~ ~
+execute as @a[scores={equip_teleport_stick=1},nbt={SelectedItem:{id:"minecraft:stick",count:1,components:{"minecraft:custom_model_data":1}}}] at @s run tp @s ^ ^ ^5
+
+scoreboard players set @a equip_teleport_stick 0
+scoreboard players set @a[nbt={SelectedItem:{id:"minecraft:stick",count:1,components:{"minecraft:custom_model_data":1}}}] equip_teleport_stick 1

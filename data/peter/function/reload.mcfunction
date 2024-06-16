@@ -16,6 +16,12 @@ scoreboard objectives add used_lightning_bow minecraft.used:minecraft.bow
 # Tempest Talons
 scoreboard objectives add equip_elytra dummy
 
+# Infinity Ignition
+scoreboard objectives add equip_firework_rocket dummy
+
 # Dimensional Arrowcaster
 scoreboard objectives add equip_teleport_bow dummy
 scoreboard objectives add used_teleport_bow minecraft.used:minecraft.bow
+
+# Spatial Scepter
+scoreboard objectives add equip_teleport_stick dummy
