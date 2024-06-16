@@ -56,11 +56,10 @@ execute as @e[type=armor_stand,tag=InfinityElytra] at @s run summon item ~ ~ ~ {
 scoreboard players set @a equip_elytra 0
 scoreboard players set @a[nbt={Inventory:[{Slot:102b,id:"minecraft:elytra",components:{"minecraft:enchantments":{levels:{"minecraft:infinity":1}}}}]}] equip_elytra 1
 execute as @a[scores={equip_elytra=1},nbt={Inventory:[{Slot:102b,id:"minecraft:elytra",components:{"minecraft:custom_model_data":1}}]}] run execute as @a[nbt=!{Inventory:[{id:"minecraft:firework_rocket"}]}] run give @s[nbt={Inventory:[{Slot:102b,id:"minecraft:elytra",components:{"minecraft:custom_model_data":1}}]}] firework_rocket[custom_name='{"bold":true,"color":"dark_red","text":"Infinite Ignition"}',lore=['{"color":"dark_purple","text":"Peter\'s Rocket"}'],hide_additional_tooltip={},custom_model_data=1,enchantments={levels:{"minecraft:infinity":1},show_in_tooltip:false},fireworks={flight_duration:3}]
-
-execute as @a[scores={equip_elytra=1,equip_firework_rocket=1},nbt={SelectedItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:custom_model_data":1}}},nbt={FallFlying:1b}] at @s run tp @s ^ ^0.25 ^0.25
-
-scoreboard players set @a equip_firework_rocket 0
-scoreboard players set @a[nbt={SelectedItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:custom_model_data":1}}}] equip_firework_rocket 1
+execute as @a[scores={equip_elytra=1,hold_firework_rocket=1},nbt={SelectedItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:custom_model_data":1}}},nbt={FallFlying:1b}] at @s run tp @s ^ ^0.2 ^0.2
+execute as @a[scores={equip_elytra=1,hold_firework_rocket=1},nbt={SelectedItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:custom_model_data":1}}},nbt={FallFlying:1b}] at @s run effect give @s minecraft:resistance 1 255 true
+scoreboard players set @a hold_firework_rocket 0
+scoreboard players set @a[nbt={SelectedItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:custom_model_data":1}}}] hold_firework_rocket 1
 
 
 # Dimensional Arrowcaster
@@ -106,3 +105,17 @@ execute as @a[scores={equip_teleport_stick=1},nbt={SelectedItem:{id:"minecraft:s
 
 scoreboard players set @a equip_teleport_stick 0
 scoreboard players set @a[nbt={SelectedItem:{id:"minecraft:stick",count:1,components:{"minecraft:custom_model_data":1}}}] equip_teleport_stick 1
+
+
+# Apple of Eternal Satiation
+#Crafting
+execute as @e[type=armor_stand,tag=EternalApple] at @s run kill @s
+execute as @e[type=item,nbt={Item:{id:"minecraft:golden_apple"}}] at @s if entity @e[type=item,nbt={Item:{id:"minecraft:golden_carrot"}},distance=..0.25] run summon minecraft:armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoGravity:1b,Tags:["EternalApple"]}
+execute as @e[type=armor_stand,tag=EternalApple] at @s run kill @e[type=item,nbt={Item:{id:"minecraft:golden_apple"}},distance=..0.25]
+execute as @e[type=armor_stand,tag=EternalApple] at @s run kill @e[type=item,nbt={Item:{id:"minecraft:golden_carrot"}},distance=..0.25]
+execute as @e[type=armor_stand,tag=EternalApple] at @s run summon item ~ ~0.1 ~ {Tags:["eternal_apple"],Item:{id:"minecraft:enchanted_golden_apple",count:1,components:{"minecraft:food":{nutrition:0,saturation:0,can_always_eat:true,eat_seconds:1000000},"minecraft:custom_name":'{"bold":true,"color":"dark_red","text":"Apple of Eternal Satiation"}',"minecraft:lore":['{"color":"dark_purple","text":"Peter\'s Apple"}'],"minecraft:unbreakable":{show_in_tooltip:false},"minecraft:custom_model_data":1,"minecraft:enchantments":{levels:{"minecraft:infinity":1},show_in_tooltip:false}}}}
+
+#Power
+effect give @e[scores={have_eternal_apple=1}] minecraft:saturation 1 255 true
+scoreboard players set @a have_eternal_apple 0
+scoreboard players set @a[nbt={SelectedItem:{id:"minecraft:enchanted_golden_apple",count:1,components:{"minecraft:custom_model_data":1}}}] have_eternal_apple 1

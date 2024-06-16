@@ -17,7 +17,7 @@ scoreboard objectives add used_lightning_bow minecraft.used:minecraft.bow
 scoreboard objectives add equip_elytra dummy
 
 # Infinity Ignition
-scoreboard objectives add equip_firework_rocket dummy
+scoreboard objectives add hold_firework_rocket dummy
 
 # Dimensional Arrowcaster
 scoreboard objectives add equip_teleport_bow dummy
@@ -25,3 +25,6 @@ scoreboard objectives add used_teleport_bow minecraft.used:minecraft.bow
 
 # Spatial Scepter
 scoreboard objectives add equip_teleport_stick dummy
+
+# Apple of Eternal Satiation
+scoreboard objectives add have_eternal_apple dummy
