@@ -34,7 +34,8 @@ execute at @a[scores={equip_lightning_bow=1}] run tag @e[type=player,distance=0.
 execute at @e[tag=lightning_arrow,nbt={inGround:0b}] run execute at @e[distance=1..5,tag=!lightning_caster,type=!wolf,type=!cat,type=!allay,type=!villager,type=!wandering_trader,type=!armor_stand,type=!boat,type=!experience_orb,type=!item_frame,type=!glow_item_frame,type=!item,type=!leash_knot,type=!painting,type=!trident,type=!turtle,type=!axolotl,type=!bee] run summon minecraft:lightning_bolt ~ ~ ~
 execute at @e[type=minecraft:lightning_bolt] run effect give @a[nbt={SelectedItem:{id:"minecraft:bow",count:1,components:{"minecraft:custom_model_data":1}}}] minecraft:resistance 5 255 true
 execute at @e[type=minecraft:lightning_bolt] run effect give @a[nbt={SelectedItem:{id:"minecraft:bow",count:1,components:{"minecraft:custom_model_data":1}}}] minecraft:fire_resistance 5 255 true
-execute at @e[type=minecraft:lightning_bolt] run kill @e[type=minecraft:arrow,tag=lightning_arrow,distance=..5]
+# execute at @e[type=minecraft:lightning_bolt] run kill @e[type=minecraft:arrow,tag=lightning_arrow,distance=..5]
+execute at @e[type=minecraft:lightning_bolt] run kill @e[type=minecraft:arrow,distance=..5]
 tag @a remove lightning_caster
 scoreboard players set @a equip_lightning_bow 0
 scoreboard players set @a[nbt={SelectedItem:{id:"minecraft:bow",count:1,components:{"minecraft:custom_model_data":1}}}] equip_lightning_bow 1
