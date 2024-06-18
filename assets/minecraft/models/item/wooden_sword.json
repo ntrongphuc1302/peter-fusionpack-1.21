@@ -1,0 +1,14 @@
+{
+	"credit": "bajosi",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+	"layer0": "item/wooden_sword"
+	},
+	"display": {
+		"fixed": {
+			"rotation": [0, 0, 0],
+			"translation": [0, 0, 0],
+			"scale": [2, 2, 2]
+		}
+	}
+}

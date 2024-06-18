@@ -1,0 +1,14 @@
+{
+    "credit":"bajosi",
+    "parent": "minecraft:item/handheld",
+    "textures": {
+        "layer0": "item/wooden_shovel"
+    },
+    "display": {
+        "fixed": {
+            "rotation": 	[ -61, -36, -112 ],
+            "translation": 	[ -8.50, 11.25, -7 ],
+            "scale": 		[ 2, 2, 2 ]
+        }
+    }
+}

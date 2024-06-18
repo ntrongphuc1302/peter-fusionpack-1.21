@@ -1,0 +1,14 @@
+{
+	"credit": "bajosi",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+	"layer0": "item/netherite_pickaxe"
+	},
+	"display": {
+		"fixed": {
+			"rotation": [75, 90, 0],
+			"translation": [0, 0, -3],
+			"scale": [2, 2, 2]
+		}
+	}
+}

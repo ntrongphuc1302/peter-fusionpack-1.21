@@ -1,0 +1,14 @@
+{
+	"credit": "bajosi",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "item/stone_hoe"
+	},
+	"display": {
+		"fixed": {
+			"rotation": [90, 0, -22],
+			"translation": [0, 0, -7],
+			"scale": [2, 2, 2]
+		}
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"credit": "bajosi",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "item/diamond_sword"
+	},
+	"display": {
+		"fixed": {
+			"rotation": [90, 0, 45],
+			"translation": [0, 0, -13],
+			"scale": [2, 2, 2]
+		}
+	}
+}
