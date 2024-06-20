@@ -42,7 +42,7 @@ scoreboard players set @a[nbt={SelectedItem:{id:"minecraft:bow",count:1,componen
 scoreboard players set @a used_lightning_bow 0
 
 #Arrow
-execute at @a[nbt={SelectedItem:{id:"minecraft:bow",count:1,components:{"minecraft:custom_model_data":1}}}] run execute as @a[nbt=!{Inventory:[{id:"minecraft:arrow"}]}] run give @s minecraft:arrow 1
+execute at @a[scores={equip_lightning_bow=1},nbt={SelectedItem:{id:"minecraft:bow",count:1,components:{"minecraft:custom_model_data":1}}}] run execute as @a[nbt=!{Inventory:[{id:"minecraft:arrow"}]}] run give @s minecraft:arrow 1
 
 
 # Tempest Talons
@@ -88,7 +88,7 @@ scoreboard players set @a[nbt={SelectedItem:{id:"minecraft:bow",count:1,componen
 scoreboard players set @a used_teleport_bow 0
 
 #Arrow
-execute at @a[nbt={SelectedItem:{id:"minecraft:bow",count:1,components:{"minecraft:custom_model_data":2}}}] run execute as @a[nbt=!{Inventory:[{id:"minecraft:arrow"}]}] run give @s minecraft:arrow 1
+execute at @a[scores={equip_teleport_bow=1},nbt={SelectedItem:{id:"minecraft:bow",count:1,components:{"minecraft:custom_model_data":2}}}] run execute as @a[nbt=!{Inventory:[{id:"minecraft:arrow"}]}] run give @s minecraft:arrow 1
 
 
 # Spatial Scepter
